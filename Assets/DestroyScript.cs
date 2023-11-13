@@ -12,8 +12,8 @@ public class DestroyScript : MonoBehaviour
     private GameObject player;
     [SerializeField] private int yPosition = -10;
 
-    
-    
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -30,26 +30,40 @@ public class DestroyScript : MonoBehaviour
         {
             player.gameObject.transform.position = startPosition;
         }
-    
+
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        
-        if(collision.gameObject.tag == "Capsule")
+
+        if (collision.gameObject.tag == "Capsule")
         {
             player.gameObject.transform.position = startPosition;
         }
 
-        if(collision.gameObject.tag == "Goal")
+        if (collision.gameObject.tag == "Goal")
         {
-            try {
-           SceneManager.LoadScene("Berry(1)");
-           } catch (System.Exception e) {
-               Debug.Log("Couldnt load scene");
-           }
-        } 
+            try
+            {
+                SceneManager.LoadScene("Berry(1)");
+            }
+            catch (System.Exception e)
+            {
+                Debug.Log("Couldnt load scene");
+            }
+        }
+        if (collision.gameObject.tag == "GoalOne")
+        {
+            try
+            {
+                SceneManager.LoadScene("Martin");
+            }
+            catch (System.Exception e)
+            {
+                Debug.Log("Couldnt load scene");
+            }
+        }
     }
 
-    
+
 }
